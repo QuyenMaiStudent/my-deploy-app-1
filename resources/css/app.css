@@ -1,18 +1,138 @@
-.long-url-cell {
-    max-width: 300px;
-    overflow: auto;
-    white-space: nowrap;
+:root{
+    --bg: #f8fafc;
+    --card: #fff;
+    --muted: #6b7280;
+    --accent: #6366f1;
+    --danger: #ef4444;
+    --border: #e6e6f0;
+    --shadow: 0 6px 20px rgba(16,24,40,0.06);
+    --radius: 10px;
 }
 
+body {
+    background: var(--bg);
+    font-family: Inter, Roboto, Arial, sans-serif;
+    color: #111827;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+/* forms */
+.form-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+.search-row { margin-top: 6px; }
+
+.input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    transition: box-shadow .15s, border-color .15s;
+    background: #fff;
+}
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(99,102,241,0.08); }
+
+/* buttons */
+.btn {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: #f3f4f6;
+    cursor: pointer;
+}
+.btn:hover { filter: brightness(.98); }
+.btn-primary {
+    background: linear-gradient(90deg,var(--accent),#8b5cf6);
+    color: #fff;
+}
+.btn-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid rgba(185,28,28,0.12);
+}
+
+/* table */
 .my-table {
     width: 100%;
-    border: 1px solid black;
     border-collapse: collapse;
+    margin-top: 8px;
+    background: transparent;
 }
-
 .my-table th,
 .my-table td {
-    border: 1px solid black;
-    padding: 4px 8px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #f3f4f6;
     text-align: left;
+    vertical-align: middle;
+}
+.my-table thead th {
+    color: #374151;
+    font-weight: 600;
+    font-size: 13px;
+}
+.my-table tbody tr:hover { background: #fbfbff; }
+
+.long-url-cell {
+    max-width: 520px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #374151;
+}
+
+.short-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+.center { text-align: center; }
+
+/* pagination */
+.pagination {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: center;
+    align-items: center;
+}
+.page-item {
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    color: #111827;
+    cursor: pointer;
+}
+.page-item.disabled { opacity: 0.5; cursor: default; }
+
+/* responsive */
+@media (max-width: 720px) {
+    .form-row { flex-direction: column; align-items: stretch; }
+    .input { width: 100%; }
+    .long-url-cell { max-width: 220px; }
 }
