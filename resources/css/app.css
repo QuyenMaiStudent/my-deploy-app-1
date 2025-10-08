@@ -1,0 +1,18 @@
+.long-url-cell {
+    max-width: 300px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.my-table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.my-table th,
+.my-table td {
+    border: 1px solid black;
+    padding: 4px 8px;
+    text-align: left;
+}
